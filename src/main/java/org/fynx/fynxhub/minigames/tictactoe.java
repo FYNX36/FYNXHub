@@ -1,19 +1,31 @@
 package org.fynx.fynxhub.minigames;
 
 
+import org.bukkit.Bukkit;
+import org.bukkit.Material;
+import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
+import org.bukkit.command.CommandSender;
+import org.bukkit.entity.Player;
+import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
+import org.bukkit.event.inventory.ClickType;
+import org.bukkit.event.inventory.InventoryClickEvent;
+import org.bukkit.event.player.PlayerCommandPreprocessEvent;
+import org.bukkit.inventory.Inventory;
+import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.ItemMeta;
 
 public class tictactoe {
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args){
-        if (cmd.getName().equalsIgnoreCase("ttt") {
+        if (cmd.getName().equalsIgnoreCase("ttt")) {
             if (args.length == 1) {
                 Player player = Bukkit.getPlayer(args[0]);
                 if (player != null) {
                     openTicTacToeGame(player);
                 }
             }
-        })
+        }
     return true;
     }
 }
@@ -21,7 +33,7 @@ public class tictactoe {
 private void openTicTacToeGame(Player player) {
     Inventory inventory = Bukkit.createInventory(null, 9, "Tic-Tac-Toe");
     for (int i = 0; i < 9; i++) {
-        inventory.setItem(i, new ItemStack(Material.STAINED_GLASS_PANE, 1, (short) 15));
+        inventory.setItem(i, new ItemStack(Material.GRAY_STAINED_GLASS_PANE, 1, (short) 15));
     }
     player.openInventory(inventory);
 }
@@ -32,7 +44,7 @@ private int currentPlayer = 1;
 // Handle player moves
 @EventHandler
 public void onInventoryClick(InventoryClickEvent event) {
-    if (event.getInventory().getTitle().equals("Tic-Tac-Toe")) {
+    if (event.getInventory().getType().equals("Tic-Tac-Toe")) {
         event.setCancelled(true);
         if (event.getClick() != ClickType.LEFT) {
             return;
@@ -44,7 +56,7 @@ public void onInventoryClick(InventoryClickEvent event) {
         if (board[row][col] == 0) {
             board[row][col] = currentPlayer;
             // Update the inventory
-            ItemStack item = new ItemStack(Material.STAINED_GLASS_PANE, 1, currentPlayer == 1 ? (short) 14 : (short) 11);
+            ItemStack item = new ItemStack(Material.GRAY_STAINED_GLASS_PANE, 1, currentPlayer == 1 ? (short) 14 : (short) 11);
             ItemMeta meta = item.getItemMeta();
             meta.setDisplayName(currentPlayer == 1 ? "X" : "O");
             item.setItemMeta(meta);
@@ -124,7 +136,7 @@ private Player getOtherPlayer(Player player) {
     return null;
 }
 
-// Handle chat commands
+
 @EventHandler
 public void onPlayerCommandPreprocess(PlayerCommandPreprocessEvent event) {
     String[] args = event.getMessage().split(" ");
@@ -134,7 +146,7 @@ public void onPlayerCommandPreprocess(PlayerCommandPreprocessEvent event) {
         if (otherPlayer != null) {
             Inventory inventory = Bukkit.createInventory(null, 9, "Tic-Tac-Toe");
             for (int i = 0; i < 9; i++) {
-                ItemStack item = new ItemStack(Material.STAINED_GLASS_PANE, 1, (short) 0);
+                ItemStack item = new ItemStack(Material.GRAY_STAINED_GLASS_PANE, 1, (short) 0);
                 ItemMeta meta = item.getItemMeta();
                 meta.setDisplayName(" ");
                 item.setItemMeta(meta);
@@ -148,4 +160,5 @@ public void onPlayerCommandPreprocess(PlayerCommandPreprocessEvent event) {
         }
         event.setCancelled(true);
     }
+}
 }
