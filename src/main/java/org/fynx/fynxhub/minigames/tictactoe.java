@@ -26,8 +26,8 @@ public class tictactoe {
                 }
             }
         }
+    
     return true;
-    }
 }
 
 private void openTicTacToeGame(Player player) {
