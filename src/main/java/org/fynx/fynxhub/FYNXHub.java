@@ -55,6 +55,7 @@ public class FYNXHub extends JavaPlugin implements PluginMessageListener {
         //Commands
         getCommand("navigate").setExecutor(new Servers(this));
         Bukkit.getPluginCommand("spawn").setExecutor(new spawnCommand());
+        getCommand("minigames").setExecutor(new minigames(this));
 
         tablistManager = new TablistManager();
         noplayervisible = new ArrayList<>();

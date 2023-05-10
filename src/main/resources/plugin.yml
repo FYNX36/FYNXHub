@@ -13,6 +13,9 @@ commands:
     description: Sets or Teleports you to the Spawn.
     usage: /spawn
     aliases: ["setspawn"]
+  minigames:
+    description: Opens a Navigation menu.
+    usage: /minigames
 permissions:
   org.fynx.fynxhub.setspawn:
     description: Damit kannst du den Spawn setzen.
