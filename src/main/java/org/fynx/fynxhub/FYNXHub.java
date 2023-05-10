@@ -4,6 +4,7 @@ import com.google.common.io.ByteArrayDataInput;
 import com.google.common.io.ByteStreams;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
+import org.bukkit.command.CommandExecutor;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.player.PlayerInteractEvent;
@@ -19,6 +20,7 @@ import org.fynx.fynxhub.listener.InventoryListener;
 import org.fynx.fynxhub.listener.JoinQuitListener;
 import org.fynx.fynxhub.listener.playerVisibility;
 import org.fynx.fynxhub.minigames.bridge;
+import org.fynx.fynxhub.minigames.tictactoe;
 import org.fynx.fynxhub.tablist.TablistManager;
 
 import java.util.ArrayList;
@@ -56,6 +58,8 @@ public class FYNXHub extends JavaPlugin implements PluginMessageListener {
         getCommand("navigate").setExecutor(new Servers(this));
         Bukkit.getPluginCommand("spawn").setExecutor(new spawnCommand());
         getCommand("minigames").setExecutor(new minigames(this));
+        Bukkit.getPluginCommand("ttt").setExecutor(new tictactoe());
+
 
         tablistManager = new TablistManager();
         noplayervisible = new ArrayList<>();

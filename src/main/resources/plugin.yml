@@ -16,6 +16,9 @@ commands:
   minigames:
     description: Opens a Navigation menu.
     usage: /minigames
+  ttt:
+    description: TicTacToe.
+    usage: /ttt
 permissions:
   org.fynx.fynxhub.setspawn:
     description: Damit kannst du den Spawn setzen.
