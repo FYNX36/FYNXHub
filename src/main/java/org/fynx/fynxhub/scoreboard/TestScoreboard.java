@@ -58,6 +58,12 @@ public class TestScoreboard extends ScoreboardBuilder{
         }
         setScore( playerCount + " von " + maxPlayer, 1);
 
+        if (player.isOp()){
+            setScore(ChatColor.DARK_RED + "Admin", 7);
+        }else {
+            setScore(ChatColor.GREEN + "Spieler", 7);
+        }
+
         socialId++;
 
         if (socialId >= 2){

@@ -3,10 +3,14 @@ package org.fynx.fynxhub.tablist;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
+import org.bukkit.scheduler.BukkitRunnable;
 import org.bukkit.scoreboard.Scoreboard;
 import org.bukkit.scoreboard.Team;
+import org.fynx.fynxhub.FYNXHub;
 
 public class TablistManager {
+
+    private int socialId;
 
     public void setTablist(Player player){
         player.setPlayerListHeaderFooter(ChatColor.GOLD.toString() + "Server Netzwerk","by F Y N X");
@@ -44,6 +48,11 @@ public class TablistManager {
             players.addEntry(target.getName());
 
         }
+
+
+
+
+
 
 
     }

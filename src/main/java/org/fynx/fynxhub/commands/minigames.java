@@ -4,6 +4,7 @@ import com.google.common.io.ByteArrayDataOutput;
 import com.google.common.io.ByteStreams;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
+import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -42,6 +43,23 @@ public class minigames implements Listener, CommandExecutor {
 
         if (slot == 11){
 
+            Location loc = new Location(Bukkit.getWorld("Lobby"), 86.5, 69, -9.5, -90,1);
+            player.teleport(loc);
+
+            player.closeInventory();
+        }
+        if (slot == 13){
+
+            Location loc = new Location(Bukkit.getWorld("Lobby"), 96.5, 69, 4.5, -90,1);
+            player.teleport(loc);
+
+            player.closeInventory();
+        }
+        if (slot == 15){
+
+            Location loc = new Location(Bukkit.getWorld("Lobby"), 95.5, 69, -23.5, -90,1);
+            player.teleport(loc);
+
             player.closeInventory();
         }
     }
@@ -66,13 +84,13 @@ public class minigames implements Listener, CommandExecutor {
 
         Player player = (Player) sender;
 
-        Inventory inv = Bukkit.createInventory(player, 7*3 , invName);
-        for(int i = 0; i < 21; i++){
+        Inventory inv = Bukkit.createInventory(player, 9*3 , invName);
+        for(int i = 0; i < 27; i++){
             inv.setItem(i, getItem(new ItemStack(Material.GRAY_STAINED_GLASS_PANE), "§", ""));
         }
-        inv.setItem(9, getItem(new ItemStack(Material.CRAFTING_TABLE), "&9Minigames", "&a Teleports you to the Minigame lobby"));
-        inv.setItem(11, getItem(new ItemStack(Material.GRASS_BLOCK), "&3Minechess", "&a Teleports you to the Minechess games"));
-        inv.setItem(13, getItem(new ItemStack(Material.GRASS_BLOCK), "&6Bingo", "&a Teleports you to the Minigame lobby"));
+        inv.setItem(11, getItem(new ItemStack(Material.CRAFTING_TABLE), "&9Minigames", "&a Teleports you to the Minigame lobby"));
+        inv.setItem(13, getItem(new ItemStack(Material.GRASS_BLOCK), "&3Minechess", "&a Teleports you to the Minechess games"));
+        inv.setItem(15, getItem(new ItemStack(Material.GRASS_BLOCK), "&6Bingo", "&a Teleports you to the Minigame lobby"));
 
         player.openInventory(inv);
         return true;
