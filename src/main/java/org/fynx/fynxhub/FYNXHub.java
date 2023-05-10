@@ -11,6 +11,7 @@ import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.plugin.messaging.PluginMessageListener;
 import org.fynx.fynxhub.commands.Servers;
+import org.fynx.fynxhub.commands.minigames;
 import org.fynx.fynxhub.commands.spawnCommand;
 import org.fynx.fynxhub.events.ConnectEvents;
 import org.fynx.fynxhub.events.InteractEvents;

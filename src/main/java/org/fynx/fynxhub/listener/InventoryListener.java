@@ -32,7 +32,7 @@ public class InventoryListener implements Listener{
         //Minigames
         ItemStack compass = new ItemStack(Material.COMPASS);
         ItemMeta compassMeta = compass.getItemMeta();
-        compassMeta.setDisplayName("§aMinigame Selector §7(Comming Later)");
+        compassMeta.setDisplayName("§aMinigame Selector §7(Right Click)");
         compass.setItemMeta(compassMeta);
         player.getInventory().setItem(1, compass);
         player.setCompassTarget(new Location(player.getWorld(), -10, 58, -10));
