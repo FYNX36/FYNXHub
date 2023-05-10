@@ -1,0 +1,19 @@
+name: FYNX-Hub
+version: '${project.version}'
+main: org.fynx.fynxhub.FYNXHub
+api-version: 1.19
+authors: [F Y N X]
+description: Lobby plugin by FYNX
+website: jamportlabel.com
+commands:
+  navigate:
+    description: Opens a Navigation menu.
+    usage: /navigate
+  spawn:
+    description: Sets or Teleports you to the Spawn.
+    usage: /spawn
+    aliases: ["setspawn"]
+permissions:
+  org.fynx.fynxhub.setspawn:
+    description: Damit kannst du den Spawn setzen.
+    default: op
