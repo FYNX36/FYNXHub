@@ -11,16 +11,14 @@ import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.plugin.messaging.PluginMessageListener;
-import org.fynx.fynxhub.commands.Servers;
-import org.fynx.fynxhub.commands.minigames;
-import org.fynx.fynxhub.commands.spawnCommand;
+import org.fynx.fynxhub.commands.*;
 import org.fynx.fynxhub.events.ConnectEvents;
 import org.fynx.fynxhub.events.InteractEvents;
 import org.fynx.fynxhub.listener.InventoryListener;
 import org.fynx.fynxhub.listener.JoinQuitListener;
 import org.fynx.fynxhub.listener.playerVisibility;
+import org.fynx.fynxhub.minigames.TicTacToeGame;
 import org.fynx.fynxhub.minigames.bridge;
-import org.fynx.fynxhub.minigames.tictactoe;
 import org.fynx.fynxhub.tablist.TablistManager;
 
 import java.util.ArrayList;
@@ -55,10 +53,12 @@ public class FYNXHub extends JavaPlugin implements PluginMessageListener {
         Bukkit.getPluginManager().registerEvents(new bridge(), this);
 
         //Commands
-        getCommand("navigate").setExecutor(new Servers(this));
+        Bukkit.getPluginCommand("navigate").setExecutor(new Servers(this));
         Bukkit.getPluginCommand("spawn").setExecutor(new spawnCommand());
         getCommand("minigames").setExecutor(new minigames(this));
-        Bukkit.getPluginCommand("ttt").setExecutor(new tictactoe());
+        getCommand("ttt").setExecutor(new TicTacToeCommand());
+        getCommand("accept").setExecutor(new TicTacToeAcceptCommand());
+        getCommand("decline").setExecutor(new  TicTacToeDeclineCommand());
 
 
         tablistManager = new TablistManager();
