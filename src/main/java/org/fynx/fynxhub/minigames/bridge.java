@@ -16,6 +16,7 @@ public class bridge implements Listener {
     public void onSignEdit(SignChangeEvent event){
         String s = event.getLine(0);
 
+
         if(s.equalsIgnoreCase("[bingo]")){
             event.setLine(0, "§7[§aBingo§7]");
             event.setLine(2, "§9 Bingo");

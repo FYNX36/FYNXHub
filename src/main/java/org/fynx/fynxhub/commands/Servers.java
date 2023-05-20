@@ -44,10 +44,27 @@ public class Servers implements Listener, CommandExecutor {
 
         event.setCancelled(true);
 
+        if (slot == 9){
+            ByteArrayDataOutput out = ByteStreams.newDataOutput();
+            out.writeUTF("Connect");
+            out.writeUTF("lobby");
+
+            player.sendPluginMessage(FYNXHub.getInstance(), "BungeeCord", out.toByteArray());
+            player.closeInventory();
+        }
+
         if (slot == 11){
             ByteArrayDataOutput out = ByteStreams.newDataOutput();
             out.writeUTF("Connect");
             out.writeUTF("survival");
+
+            player.sendPluginMessage(FYNXHub.getInstance(), "BungeeCord", out.toByteArray());
+            player.closeInventory();
+        }
+        if (slot == 13){
+            ByteArrayDataOutput out = ByteStreams.newDataOutput();
+            out.writeUTF("Connect");
+            out.writeUTF("modded");
 
             player.sendPluginMessage(FYNXHub.getInstance(), "BungeeCord", out.toByteArray());
             player.closeInventory();
@@ -78,11 +95,11 @@ public class Servers implements Listener, CommandExecutor {
         for(int i = 0; i < 27; i++){
             inv.setItem(i, getItem(new ItemStack(Material.GRAY_STAINED_GLASS_PANE), "§", ""));
         }
-        inv.setItem(9, getItem(new ItemStack(Material.CRAFTING_TABLE), "&9Lobby", "&2 You are already on this Server"));
-        inv.setItem(11, getItem(new ItemStack(Material.GRASS_BLOCK), "&3Survival 1", "&a Click to Join the Lobby Server"));
-        inv.setItem(13, getItem(new ItemStack(Material.GRASS_BLOCK), "&6Survival 2", "&a Click to Join the Lobby Server"));
-        inv.setItem(15, getItem(new ItemStack(Material.DIAMOND_BLOCK), "&2Modded 1", "&a Click to Join the Lobby Server"));
-        inv.setItem(17, getItem(new ItemStack(Material.DIAMOND_BLOCK), "&5Modded 2", "&a Click to Join the Lobby Server"));
+        inv.setItem(9, getItem(new ItemStack(Material.CRAFTING_TABLE), "&9Lobby", "&2You are already on this Server"));
+        inv.setItem(11, getItem(new ItemStack(Material.GRASS_BLOCK), "&3Survival", "&aClick to Join the Lobby Server"));
+        inv.setItem(13, getItem(new ItemStack(Material.GRASS_BLOCK), "&6Modded", "&aClick to Join the Lobby Server"));
+        inv.setItem(15, getItem(new ItemStack(Material.DIAMOND_BLOCK), "&4Not Avaliable", "&4There is currently no Server avaliable"));
+        inv.setItem(17, getItem(new ItemStack(Material.DIAMOND_BLOCK), "&4Not Avaliable", "&4There is currently no Server avaliable"));
 
         player.openInventory(inv);
         return true;
